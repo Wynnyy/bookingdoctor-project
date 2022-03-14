@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div align="center">
+    <h1><b>Book a time at the Doctor's</b></h1>
+    <br />
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/save}" th:object="${patient}" method="post">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" >Book your time</label>
+                </div>
+
+                <select th:field="*{booking}" class="form-control" name="stockType">
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+            </div>
+
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >First name</label>
+                    <td>
+                        <input type="hidden" th:field="*{id}" />
+                        <input type="text" th:field="*{name}" class="form-control" placeholder="First name" />
+                    </td>
+                </tr>
+            </div>
+
+
+
+
+
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Last Name</label>
+                    <td><input type="text" th:field="*{lname}" class="form-control" placeholder="Last name" /></td>
+                </tr>
+
+            </div>
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Number</label>
+                    <td><input type="tel" th:field="*{number}" class="form-control" placeholder="Call number" pattern="[+]{1}[0-9]{7,15}">
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Email</label>
+                    <td><input type="email" th:field="*{email}" class="form-control" placeholder="your@email.com" /></td>
+                </tr>
+            </div>
+
+            <br>
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

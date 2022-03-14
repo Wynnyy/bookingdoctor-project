@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<style>
+.navi_button{
+        border-top-left-radius: 10px;
+        border: 0.5px solid;
+        border-right: 0.2px rgba(82, 82, 82, 0.39);
+        border-color: rgba(11, 87, 100, 0.329);   
+       
+       
+            
+        
+       
+    }
+    .navi_button1{
+        border-top-right-radius: 10px;
+        border: 0.5px solid;
+        border-ledt: 0.2px rgba(82, 82, 82, 0.39);
+        /* border-left: none; */
+        border-color: rgba(9, 74, 85, 0.329);    
+        
+    }
+
+
+
+</style>
+<div>
+    <div align = "center">
+        <h1><b>
+            Spring Boot - Doctor
+        </b></h1>
+    </div>
+    <br>
+    <br>
+
+<div class="btn-group" >
+    <a  th:href="@{'/booking'}"><button class="navi_button" style="height: 50px;;width:300px">Booking</button></a>
+    <a  th:href="@{'/mypatients'}"><button class="navi_button1" style="height: 50px;;width:300px">My Patients</button></a>
+</div>
+
+    <div align = "center" >
+        <div class="col-sm-5" align = "center">
+            <div class="panel-body" align = "center" >
+              <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Time</th>
+
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each="patient : ${patientList}">
+                        <td th:text="${patient.id}">ID</td>
+                        <td th:text="${patient.name}">First Name</td>
+                        <td th:text="${patient.lname}">Last Name</td>
+                        <td th:text="${patient.number}">Age</td>
+                        <td th:text="${patient.email}">Email</td>
+                        <td th:text="${patient.booking}">Role</td>
+
+
+                        <td>
+                            <div align = "center" >
+                                <a th:href="@{'/admin/edit/' + ${patient.id}}"><button type="button" class="btn btn-outline-warning"><b>Edit</b></button></a>
+                            </div>
+                        </td>
+                        <div align = "center" >
+                            <td>
+                                <a th:href="@{'/admin/delete/' + ${patient.id}}"><button type="button" class="btn btn-outline-danger"><b>Delete</b></button></a>
+                            </td>
+                        </div>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</body>
+</html>

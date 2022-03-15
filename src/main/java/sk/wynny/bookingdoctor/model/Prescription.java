@@ -8,9 +8,10 @@ public class Prescription {
     @GeneratedValue
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(foreignKey = @ForeignKey(name = "fk_prescriptionl_myPatients_id")) //dorobit
     private String prescriptionl;
+//    @ManyToOne
+//    @JoinColumn(foreignKey = @ForeignKey(name = "fk_prescriptionl_myPatients_id"))
+//    private MyPatients myPatients;
 
     public Prescription(String prescriptionl) {
         this.prescriptionl = prescriptionl;

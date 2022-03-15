@@ -1,6 +1,8 @@
 package sk.wynny.bookingdoctor.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -8,11 +10,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.sql.DataSource;
+
 @EnableWebSecurity
+@Configuration
 public class SecurityConfi extends WebSecurityConfigurerAdapter {
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+
+
 
         auth.inMemoryAuthentication().
                 withUser("Wynny").
@@ -23,10 +32,19 @@ public class SecurityConfi extends WebSecurityConfigurerAdapter {
                 .password("doctor")
                 .roles("ADMIN");
 
+
+
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        http.authorizeRequests().antMatchers("/h2-console/**")
+                .permitAll()
+                .and().csrf().ignoringAntMatchers("/h2-console/**")
+                .and().headers().frameOptions().sameOrigin();
+
+
         http.authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/mypatients").hasRole("ADMIN")

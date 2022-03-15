@@ -85,7 +85,7 @@ public class MyControler {
 
 
         }
-        return "redirect:/admin/";
+        return "redirect:/";
 
     }
 

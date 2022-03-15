@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2>Dr. Haus</h2>  
+            
+             
+               </div>
+               <div>
+                   <ul class="navi_head">
+                    <a th:href="@{'/booking'}"><li class="li1">Booking</li></a>
+                       <a href="#"><li class="li2">                      
+                        Medical prescriptions</li></a>
+                       <a href="#"> <li class="li3">Contact</li></a>
+
+                    </ul>
+               </div>
+
+        <a  th:href="@{'/booking'}"></a>
+    </header>
+<style>
+    /* *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+    } */
+body{
+    text-align: center;
+    background: url(https://wallpaperaccess.com/full/619974.jpg);
+}
+.logo {
+    text-align: left;
+    margin-right: auto;
+    margin-left: 80px;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+     
+  
+    
+}
+.hlogo{
+   
+  
+    
+}
+
+ 
+.navi_head li{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 50px; 
+    padding-left: 1px;
+   
+   
+
+    
+}
+.li2:hover{
+    font-weight: 800;
+    /* font-size: 17px; */
+
+    color: rgb(79, 214, 255);
+}
+.li1:hover{
+    font-weight: 800;
+    /* font-size: 17px; */
+
+    color: rgb(79, 214, 255);
+}.li3:hover{
+    font-weight: 800;
+    /* font-size: 17px; */
+
+    color: rgb(79, 214, 255);
+}
+ header{
+    display: flex;
+    /* justify-content: flex-end; */
+    
+    align-items: center;
+    padding: 15px ;
+    
+
+}
+/* .ul a{
+    display: table;
+    height: 100%;
+    float: left;
+    padding: 0px 20px;
+
+}
+.ul li a {
+    display:  table-cell;
+    vertical-align:  middle;
+    height: 100%;
+}
+ */
+
+
+
+
+
+header{
+    background-color: rgba(240, 255, 255, 0.603);
+}
+.navi_button{
+
+    
+
+
+
+    
+        border-top-left-radius: 10px;
+        border: 0.5px solid;
+        border-right: 0.2px rgba(82, 82, 82, 0.39);
+        border-color: rgba(11, 87, 100, 0.329);   
+          
+        
+       
+    }
+    .navi_button1{
+        border-top-right-radius: 10px;
+        border: 0.5px solid;
+        /* border-let: 0.2px rgba(82, 82, 82, 0.39); */
+        /* border-left: none; */
+        border-color: rgba(9, 74, 85, 0.329);    
+        
+    }
+
+
+
+</style>
+
+<div>
+   <div class="head">
+        <h1><b>
+            Spring Boot - Doctor
+        </b></h1>
+    </div>
+    <br>
+    <br>
+
+
+
+    <div align = "center" >
+        <div class="col-sm-5" align = "center">
+            <div class="panel-body" align = "center" >
+              <table class="table table-striped">
+                    <thead class="thead-dark">
+                   <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Time</th>
+
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each="patient : ${patientList}">
+                        <td th:text="${patient.id}">ID</td>
+                        <td th:text="${patient.name}">First Name</td>
+                        <td th:text="${patient.lname}">Last Name</td>
+                        <td th:text="${patient.number}">Age</td>
+                        <td th:text="${patient.email}">Email</td>
+                        <td th:text="${patient.booking}">Role</td>
+
+
+                        <td>
+                            <div align = "center" >
+                                <a th:href="@{'/admin/edit/' + ${patient.id}}"><button type="button" class="btn btn-outline-warning"><b>Edit</b></button></a>
+                            </div>
+                        </td>
+                        <div align = "center" >
+                            <td>
+                                <a th:href="@{'/admin/delete/' + ${patient.id}}"><button type="button" class="btn btn-outline-danger"><b>Delete</b></button></a>
+                            </td>
+                        </div>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</body>
+</html>

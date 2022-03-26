@@ -1,15 +1,17 @@
 package sk.wynny.bookingdoctor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import sk.wynny.bookingdoctor.model.MyPatients;
 import sk.wynny.bookingdoctor.model.Patient;
+import sk.wynny.bookingdoctor.model.Prescription;
 import sk.wynny.bookingdoctor.repository.BookingPatient;
 import sk.wynny.bookingdoctor.repository.PatientsRepository;
+import sk.wynny.bookingdoctor.repository.PreScriptionRepo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import javax.persistence.EntityManager;
+import java.util.*;
 
 @Service
 public class MyService {
@@ -18,6 +20,9 @@ public class MyService {
 
     @Autowired
     PatientsRepository patientsRepository;
+
+    @Autowired
+    PreScriptionRepo preScriptionRepo;
 
     public void randomPatients(){
         List<Patient> patientList = new ArrayList<Patient>();
@@ -35,7 +40,10 @@ public class MyService {
         Random random = new Random();
 
         Integer number = random.nextInt(94555555);
+
         String number1 = number.toString();
+
+
         myPatientList.add(new MyPatients( "Jozef","Tmavy", "tmavy@gmail.com","09454454"));
         myPatientList.add(new MyPatients( "Peter","Zeleny", "zeleny01@gmail.com", number1));
         myPatientList.add(new MyPatients( "Karol","Modry", "Modry01@gmail.com", number1));
@@ -51,4 +59,36 @@ public class MyService {
         patientsRepository.saveAll(myPatientList);
 
     }
+        public void savePrescription(){
+            MyPatients myPatients = new MyPatients("Laura","Chora", "laura@gmail.com","09454454");
+            Prescription prescription1 = new Prescription();
+            Prescription prescription2 = new Prescription();
+            Prescription prescription3 = new Prescription();
+
+
+            //save like list, doesn't work
+//            List<Prescription> list = new ArrayList<>();
+//            list.add(new Prescription("Paralen"));
+//            list.add(new Prescription("Antiobiotika"));
+//            list.add(new Prescription("Lexaurin"));
+//          myPatients.setPrescriptionList(list);
+//            preScriptionRepo.saveAll(list);
+
+            prescription1.setPrescriptionl("Paralen");
+            prescription1.setMyPatients(myPatients);
+            prescription2.setPrescriptionl("Antiobitoka");
+            prescription2.setMyPatients(myPatients);
+            prescription3.setPrescriptionl("Lexaurin");
+            prescription3.setMyPatients(myPatients);
+
+
+            patientsRepository.save(myPatients);
+
+            preScriptionRepo.save(prescription1);
+            preScriptionRepo.save(prescription2);
+            preScriptionRepo.save(prescription3);
+
+
+        }
+
 }

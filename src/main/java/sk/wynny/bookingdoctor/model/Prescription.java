@@ -8,13 +8,23 @@ public class Prescription {
     @GeneratedValue
     private Long id;
 
-    private String prescriptionl;
-//    @ManyToOne
-//    @JoinColumn(foreignKey = @ForeignKey(name = "fk_prescriptionl_myPatients_id"))
-//    private MyPatients myPatients;
+        private String prescriptionl;
+
+  // @JoinColumn(foreignKey = @ForeignKey(name = "fk_prescription"))
+    @ManyToOne
+    private MyPatients myPatients;
+
+    public MyPatients getMyPatients() {
+        return myPatients;
+    }
+
+    public void setMyPatients(MyPatients myPatients) {
+        this.myPatients = myPatients;
+    }
 
     public Prescription(String prescriptionl) {
         this.prescriptionl = prescriptionl;
+
     }
 
     public Prescription() {

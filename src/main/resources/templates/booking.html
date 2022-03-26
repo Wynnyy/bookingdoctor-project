@@ -52,7 +52,7 @@
             <div alight="left">
                 <tr>
                     <label class="form-label" >Number</label>
-                    <td><input type="tel" th:field="*{number}" class="form-control" placeholder="Call number" pattern="[+]{1}[0-9]{7,15}">
+                    <td><input type="tel" th:field="*{number}" class="form-control" placeholder="+421 903 999 999" pattern="[+]{1}[0-9]{7,15}">
                     </td>
                 </tr>
             </div>
@@ -60,7 +60,7 @@
             <div alight="left">
                 <tr>
                     <label class="form-label" >Email</label>
-                    <td><input type="email" th:field="*{email}" class="form-control" placeholder="your@email.com" /></td>
+                    <td><input type="email" th:field="*{email}" class="form-control" placeholder="your@email.com" pattern="(.+)[@](.+)" /></td>
                 </tr>
             </div>
 

@@ -7,8 +7,105 @@
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
 <body>
+<header>
+    <div class="logo">
+        <h2>Dr. Haus</h2>
+
+
+    </div>
+    <div>
+        <ul class="navi_head">
+            <a th:href="@{'/booking'}"><li class="li1">Booking</li></a>
+            <a th:href="@{'/mypatients'}"><li class="li2">
+                My Patients</li></a>
+            <a href="#"> <li class="li3">Contact</li></a>
+
+        </ul>
+    </div>
+
+    <a  th:href="@{'/booking'}"></a>
+</header>
 <style>
+    /* *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+    } */
+body{
+    text-align: center;
+    background: url(https://wallpaperaccess.com/full/619974.jpg);
+}
+.logo {
+    text-align: left;
+    margin-right: auto;
+    margin-left: 80px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+
+
+
+}
+
+
+
+
+
+.navi_head li{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 50px;
+    padding-left: 1px;
+
+
+
+}
+.li2:hover{
+    font-weight: 800;
+    /* font-size: 17px; */
+
+    color: rgb(79, 214, 255);
+}
+.li1:hover{
+    font-weight: 800;
+    /* font-size: 17px; */
+
+    color: rgb(79, 214, 255);
+}.li3:hover{
+    font-weight: 800;
+    /* font-size: 17px; */
+
+    color: rgb(79, 214, 255);
+}
+ header{
+    display: flex;
+    /* justify-content: flex-end; */
+
+    align-items: center;
+    padding: 15px ;
+
+
+}
+.center {
+  margin-left: 50%;
+
+}
+
+
+
+header{
+    background-color: rgba(240, 255, 255, 0.603);
+}
 .navi_button{
+
+
+
+
+
+
         border-top-left-radius: 10px;
         border: 0.5px solid;
         border-right: 0.2px rgba(82, 82, 82, 0.39);
@@ -16,38 +113,82 @@
 
 
 
-
-
     }
     .navi_button1{
         border-top-right-radius: 10px;
         border: 0.5px solid;
-        border-ledt: 0.2px rgba(82, 82, 82, 0.39);
-        /* border-left: none; */
+
         border-color: rgba(9, 74, 85, 0.329);
 
     }
 
+    table{
+        border-collapse: collapse;
+        text-align: left;
+        margin: 20px 800px;
+        font-size: 1.2em;
+        min-width: 600px;
+        border-radius: 5px 5px 0 0;
+        box-shadow: 10px 10px 15px rgba(141, 141, 141, 0.438);
+        overflow: hidden;
+    }
+    table thead tr{
+        background-color: rgba(137, 227, 255, 0.849);
+        color: #ffffff;
+        text-align: left;
+        box-shadow: 5px 5px 10px rgba(141, 141, 141, 0.438);
+        font-weight: bold;
+
+    }
+    table tbody{
+        border-bottom: 1px solid #dddddddd;
+        background-color: rgba(206, 206, 206, 0.26);
+
+
+    }
+    table tbody tr:nth-of-type(even){
+        background-color: rgba(206, 206, 206, 0.26);
+    }
+    table tbody tr:last-of-type{
+        border-bottom: 2px solidrgba(121, 121, 121, 0.867)d;
+    }
+    table_text{
+        text-align: justify;
+    }
+    th, td {
+        padding: 0px 10px 1px 40px;
+    }
+    .pacients{
+        padding: ;
+        padding-right: 100px;
+    }
+
+
 
 
 </style>
-<div>
-    <div align = "center">
-        <h1><b>
-            Spring Boot - Doctor
-        </b></h1>
-    </div>
-    <br>
-    <br>
+
+<div class="head">
+    <h1><b>
+        Spring Boot - Doctor
+    </b></h1>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
 
 
-    <div align = "center" >
-        <div class="col-sm-5" align = "center">
-            <div class="panel-body" align = "center" >
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                    <tr>
+<div class="mytable">
+
+    <table >
+        <h2 class="pacients">Your pacient list </h2>
+        <thead>
+        <tr>
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -68,7 +209,7 @@
                         <td th:text="${mypatient.id}">ID</td>
                         <td th:text="${mypatient.name}">First Name</td>
                         <td th:text="${mypatient.lname}">Last Name</td>
-                        <td th:text="${mypatient.number}">Age</td>
+                        <td th:text="${mypatient.number}">Phone</td>
                         <td th:text="${mypatient.email}">Email</td>
                         <td >prescript</td>
                         <td >edit prescript</td>

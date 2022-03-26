@@ -1,9 +1,8 @@
 package sk.wynny.bookingdoctor.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class MyPatients {
@@ -13,6 +12,16 @@ public class MyPatients {
     private String name,lname,email;
     private String number;
 
+    @OneToMany
+    private List<Prescription> prescriptionList;
+
+    public List<Prescription> getPrescriptionList() {
+        return prescriptionList;
+    }
+
+    public void setPrescriptionList(List<Prescription> prescriptionList) {
+        this.prescriptionList = prescriptionList;
+    }
 
     public MyPatients() {
     }

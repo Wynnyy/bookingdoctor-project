@@ -21,6 +21,7 @@ public class inputData implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent event) {
         myService.randomPatients();
         myService.myPatientsList();
+        myService.savePrescription();
 
 
 
